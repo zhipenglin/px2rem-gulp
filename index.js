@@ -43,7 +43,7 @@ module.exports = function (options) {
           var vfile = new gutil.File({
             cwd: file.cwd,
             base: file.base,
-            path: file.path.replace(/(.debug)?.css$/, dpr + 'x.debug.css'),
+            path: file.path.replace(/.css$/, '.@'+dpr + 'x.css'),
             contents: new Buffer(newCssText)
           });
           this.push(vfile);
@@ -56,7 +56,7 @@ module.exports = function (options) {
         var vfile = new gutil.File({
           cwd: file.cwd,
           base: file.base,
-          path: file.path.replace(/(.debug)?.css$/, '.debug.css'),
+          path: file.path.replace(/.css$/, '.css'),
           contents: new Buffer(newCssText)
         });
         this.push(vfile);
